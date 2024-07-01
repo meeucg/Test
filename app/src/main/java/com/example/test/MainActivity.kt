@@ -25,12 +25,18 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         viewBinding?.apply()
         {
+            raceBtn.isEnabled = false
+
             carsNumber.doOnTextChanged { text, start, before, count ->
                 text.toString().toIntOrNull()?.let()
                 {
                     if(it in 1..100)
                     {
                         raceBtn.isEnabled = true
+                    }
+                    else
+                    {
+                        raceBtn.isEnabled = false
                     }
                     numberOfCars = it
                 } ?: run {
@@ -51,7 +57,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 val race = Race(contenders, log)
 
-                //log("")
                 do{}while(race.nextRound())
 
                 raceBtn.isEnabled = true

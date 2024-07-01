@@ -50,7 +50,7 @@ class Race(
         round++
         if(winners.count() == 1)
         {
-            log("\nThe winner is:\n${winners[0]}")
+            log("\nThe winner is:\n${winners[0]}\n\n")
             return false
         }
         return true
